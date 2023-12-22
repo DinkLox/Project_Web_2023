@@ -1,0 +1,863 @@
+﻿@model IList<ProductViewModel>
+@{
+	ViewData["Title"] = ViewBag.CategoryName;
+	var currentPage = ViewBag.CurrentPage;
+	var totalPage = ViewBag.TotalPage;
+	var categoryName = ViewBag.CategoryName;
+	var currentPageSize = ViewBag.CurrentPageSize;
+}
+<section class="left-sidebar-layout container-section">
+	<div class="container">
+		<div class="content-box">
+			<div class="row	">
+				<div class="col-xl-3 col-lg-3 col-md-12">
+					<partial name="~/Views/Shared/Components/SidebarProductPage/SidebarProductPage.cshtml" />
+				</div>
+				<div class="col-xl-9 col-lg-9 col-md-12">
+					<div class="main-content-box">
+						<div class="breadcrumb-header">
+							<a href="">Trang chủ</a>
+							<span>></span>
+							<a href="">Sản phẩm</a>
+							<span>></span>
+							<a href="">Quần áo</a>
+						</div>
+						<div class="hot-product">
+							<h4 class="header-box-content">Sản phẩm nổi bật</h4>
+							<div id="hot-product-carousel" class="row owl-carousel owl-theme my-3">
+								@await Component.InvokeAsync("HotProducts", 10)
+								@* <div class="col-xl-12 col-lg-12 col-md-11 col-12 mb-30 px-10">
+									<div class="card product product--grid">
+										<div class="h-100">
+											<div class="product-item">
+												<div class="product-item__image">
+													<span class="like-icon">
+														<button type="button" class="content-center">
+															<i class="lar la-heart icon"></i>
+														</button>
+													</span>
+													<a href="#"><img class="card-img-top img-fluid"
+															src="/img/digital-chair.png" alt="digital-chair"></a>
+												</div>
+												<div class="card-body px-20 pb-25 pt-25">
+													<div class="product-item__body text-capitalize">
+														<a href="product-details.html">
+															<h6 class="card-title">Montes scelerisque</h6>
+														</a>
+														<div
+															class="stars-rating d-flex align-items-center flex-wrap mb-10">
+															<span class="star-icon las la-star active"></span>
+															<span class="star-icon las la-star active"></span>
+															<span class="star-icon las la-star active"></span>
+															<span class="star-icon las la-star active"></span>
+															<span class="star-icon las la-star-half-alt active"></span>
+															<span class="stars-rating__point">4.9</span>
+															<span class="stars-rating__review">
+																<span>778</span> Reviews
+															</span>
+														</div>
+													</div>
+													<div class="product-item__footer">
+
+														<div class="d-flex align-items-center flex-wrap">
+															<span class="product-desc-price">$200.00</span>
+															<span class="product-price">$100.00</span>
+															<span class="product-discount">50% Off</span>
+														</div>
+													</div>
+													<div class="product-item__button d-flex mt-20 flex-wrap">
+														<button
+															class="btn btn-default btn-squared color-light btn-outline-light px-20 ">
+															<img src="/img/svg/shopping-bag.svg" alt="shopping-bag"
+																class="svg">
+															Thêm giỏ hàng
+														</button>
+														<button
+															class="btn btn-primary btn-default btn-squared border-0 px-25">
+															Xem chi tiết
+														</button>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-xl-12 col-lg-12 col-md-11 col-12 mb-30 px-10">
+									<div class="card product product--grid">
+										<div class="h-100">
+											<div class="product-item">
+												<div class="product-item__image">
+													<span class="like-icon">
+														<button type="button" class="content-center">
+															<i class="lar la-heart icon"></i>
+														</button>
+													</span>
+													<a href="#"><img class="card-img-top img-fluid"
+															src="/img/digital-chair.png" alt="digital-chair"></a>
+												</div>
+												<div class="card-body px-20 pb-25 pt-25">
+													<div class="product-item__body text-capitalize">
+														<a href="product-details.html">
+															<h6 class="card-title">Montes scelerisque</h6>
+														</a>
+														<div
+															class="stars-rating d-flex align-items-center flex-wrap mb-10">
+															<span class="star-icon las la-star active"></span>
+															<span class="star-icon las la-star active"></span>
+															<span class="star-icon las la-star active"></span>
+															<span class="star-icon las la-star active"></span>
+															<span class="star-icon las la-star-half-alt active"></span>
+															<span class="stars-rating__point">4.9</span>
+															<span class="stars-rating__review">
+																<span>778</span> Reviews
+															</span>
+														</div>
+													</div>
+													<div class="product-item__footer">
+
+														<div class="d-flex align-items-center flex-wrap">
+															<span class="product-desc-price">$200.00</span>
+															<span class="product-price">$100.00</span>
+															<span class="product-discount">50% Off</span>
+														</div>
+													</div>
+													<div class="product-item__button d-flex mt-20 flex-wrap">
+														<button
+															class="btn btn-default btn-squared color-light btn-outline-light px-20 ">
+															<img src="/img/svg/shopping-bag.svg" alt="shopping-bag"
+																class="svg">
+															Thêm giỏ hàng
+														</button>
+														<button
+															class="btn btn-primary btn-default btn-squared border-0 px-25">
+															Xem chi tiết
+														</button>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-xl-12 col-lg-12 col-md-11 col-12 mb-30 px-10">
+									<div class="card product product--grid">
+										<div class="h-100">
+											<div class="product-item">
+												<div class="product-item__image">
+													<span class="like-icon">
+														<button type="button" class="content-center">
+															<i class="lar la-heart icon"></i>
+														</button>
+													</span>
+													<a href="#"><img class="card-img-top img-fluid"
+															src="/img/digital-chair.png" alt="digital-chair"></a>
+												</div>
+												<div class="card-body px-20 pb-25 pt-25">
+													<div class="product-item__body text-capitalize">
+														<a href="product-details.html">
+															<h6 class="card-title">Montes scelerisque</h6>
+														</a>
+														<div
+															class="stars-rating d-flex align-items-center flex-wrap mb-10">
+															<span class="star-icon las la-star active"></span>
+															<span class="star-icon las la-star active"></span>
+															<span class="star-icon las la-star active"></span>
+															<span class="star-icon las la-star active"></span>
+															<span class="star-icon las la-star-half-alt active"></span>
+															<span class="stars-rating__point">4.9</span>
+															<span class="stars-rating__review">
+																<span>778</span> Reviews
+															</span>
+														</div>
+													</div>
+													<div class="product-item__footer">
+
+														<div class="d-flex align-items-center flex-wrap">
+															<span class="product-desc-price">$200.00</span>
+															<span class="product-price">$100.00</span>
+															<span class="product-discount">50% Off</span>
+														</div>
+													</div>
+													<div class="product-item__button d-flex mt-20 flex-wrap">
+														<button
+															class="btn btn-default btn-squared color-light btn-outline-light px-20 ">
+															<img src="/img/svg/shopping-bag.svg" alt="shopping-bag"
+																class="svg">
+															Thêm giỏ hàng
+														</button>
+														<button
+															class="btn btn-primary btn-default btn-squared border-0 px-25">
+															Xem chi tiết
+														</button>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-xl-12 col-lg-12 col-md-11 col-12 mb-30 px-10">
+									<div class="card product product--grid">
+										<div class="h-100">
+											<div class="product-item">
+												<div class="product-item__image">
+													<span class="like-icon">
+														<button type="button" class="content-center">
+															<i class="lar la-heart icon"></i>
+														</button>
+													</span>
+													<a href="#"><img class="card-img-top img-fluid"
+															src="/img/digital-chair.png" alt="digital-chair"></a>
+												</div>
+												<div class="card-body px-20 pb-25 pt-25">
+													<div class="product-item__body text-capitalize">
+														<a href="product-details.html">
+															<h6 class="card-title">Montes scelerisque</h6>
+														</a>
+														<div
+															class="stars-rating d-flex align-items-center flex-wrap mb-10">
+															<span class="star-icon las la-star active"></span>
+															<span class="star-icon las la-star active"></span>
+															<span class="star-icon las la-star active"></span>
+															<span class="star-icon las la-star active"></span>
+															<span class="star-icon las la-star-half-alt active"></span>
+															<span class="stars-rating__point">4.9</span>
+															<span class="stars-rating__review">
+																<span>778</span> Reviews
+															</span>
+														</div>
+													</div>
+													<div class="product-item__footer">
+
+														<div class="d-flex align-items-center flex-wrap">
+															<span class="product-desc-price">$200.00</span>
+															<span class="product-price">$100.00</span>
+															<span class="product-discount">50% Off</span>
+														</div>
+													</div>
+													<div class="product-item__button d-flex mt-20 flex-wrap">
+														<button
+															class="btn btn-default btn-squared color-light btn-outline-light px-20 ">
+															<img src="/img/svg/shopping-bag.svg" alt="shopping-bag"
+																class="svg">
+															Thêm giỏ hàng
+														</button>
+														<button
+															class="btn btn-primary btn-default btn-squared border-0 px-25">
+															Xem chi tiết
+														</button>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-xl-12 col-lg-12 col-md-11 col-12 mb-30 px-10">
+									<div class="card product product--grid">
+										<div class="h-100">
+											<div class="product-item">
+												<div class="product-item__image">
+													<span class="like-icon">
+														<button type="button" class="content-center">
+															<i class="lar la-heart icon"></i>
+														</button>
+													</span>
+													<a href="#"><img class="card-img-top img-fluid"
+															src="/img/digital-chair.png" alt="digital-chair"></a>
+												</div>
+												<div class="card-body px-20 pb-25 pt-25">
+													<div class="product-item__body text-capitalize">
+														<a href="product-details.html">
+															<h6 class="card-title">Montes scelerisque</h6>
+														</a>
+														<div
+															class="stars-rating d-flex align-items-center flex-wrap mb-10">
+															<span class="star-icon las la-star active"></span>
+															<span class="star-icon las la-star active"></span>
+															<span class="star-icon las la-star active"></span>
+															<span class="star-icon las la-star active"></span>
+															<span class="star-icon las la-star-half-alt active"></span>
+															<span class="stars-rating__point">4.9</span>
+															<span class="stars-rating__review">
+																<span>778</span> Reviews
+															</span>
+														</div>
+													</div>
+													<div class="product-item__footer">
+
+														<div class="d-flex align-items-center flex-wrap">
+															<span class="product-desc-price">$200.00</span>
+															<span class="product-price">$100.00</span>
+															<span class="product-discount">50% Off</span>
+														</div>
+													</div>
+													<div class="product-item__button d-flex mt-20 flex-wrap">
+														<button
+															class="btn btn-default btn-squared color-light btn-outline-light px-20 ">
+															<img src="/img/svg/shopping-bag.svg" alt="shopping-bag"
+																class="svg">
+															Thêm giỏ hàng
+														</button>
+														<button
+															class="btn btn-primary btn-default btn-squared border-0 px-25">
+															Xem chi tiết
+														</button>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div> *@
+							</div>
+						</div>
+						<div class="product-child-box">
+							<h4 class="header-box-content">@categoryName</h4>
+							<div class="sale-product-list">
+								<div class="row">
+									@foreach (var product in Model)
+									{
+										<div class="cus-xl-4 col-lg-4 col-md-11 col-12 mb-30 px-10">
+											<div class="card product product--grid">
+												<div class="h-100">
+													<div class="product-item">
+														<div class="product-item__image">
+															<span class="like-icon">
+																<button type="button" class="content-center">
+																	<i class="lar la-heart icon"></i>
+																</button>
+															</span>
+															<a href="#"><img class="card-img-top img-fluid" src="@product.ImageURL" alt="digital-chair"></a>
+														</div>
+														<div class="card-body px-20 pb-25 pt-25">
+															<div class="product-item__body text-capitalize">
+																<a href="product-details.html">
+																	<h6 class="card-title">@product.Name</h6>
+																</a>
+																<div class="stars-rating d-flex align-items-center flex-wrap mb-10">
+																	<span class="star-icon las la-star active"></span>
+																	<span class="star-icon las la-star active"></span>
+																	<span class="star-icon las la-star active"></span>
+																	<span class="star-icon las la-star active"></span>
+																	<span class="star-icon las la-star-half-alt active"></span>
+																	<span class="stars-rating__point">4.9</span>
+																	<span class="stars-rating__review">
+																		<span>778</span> Đánh giá
+																	</span>
+																</div>
+															</div>
+															<div class="product-item__footer">
+
+																<div class="d-flex align-items-center flex-wrap">
+																	<span class="product-desc-price">@product.DiscountPrice?.ToString("#,##0 VND")</span>
+																	<span class="product-price">@product.Price.ToString("#,##0 VND")</span>
+																	<span class="product-discount">@product.GetDiscountPercent()% Off</span>
+																</div>
+															</div>
+															<div class="product-item__button d-flex mt-20 flex-wrap">
+																<button class="btn btn-default btn-squared color-light btn-outline-light px-20 ">
+																	<img src="/img/svg/shopping-bag.svg" alt="shopping-bag" class="svg">
+																	Thêm giỏ hàng
+																</button>
+																<a asp-action="Detail" asp-controller="Products" asp-route-id="@product.Id"
+																	asp-route-slug="@product.Alias"
+																	class="btn btn-primary btn-default btn-squared border-0 px-25">
+																	Xem chi tiết
+																</a>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									}
+									<div class="col-xl-4 col-lg-4 col-md-11 col-12 mb-30 px-10">
+										<div class="card product product--grid">
+											<div class="h-100">
+												<div class="product-item">
+													<div class="product-item__image">
+														<span class="like-icon">
+															<button type="button" class="content-center">
+																<i class="lar la-heart icon"></i>
+															</button>
+														</span>
+														<a href="#"><img class="card-img-top img-fluid"
+																src="/img/digital-chair.png" alt="digital-chair"></a>
+													</div>
+													<div class="card-body px-20 pb-25 pt-25">
+														<div class="product-item__body text-capitalize">
+															<a href="product-details.html">
+																<h6 class="card-title">Montes scelerisque</h6>
+															</a>
+															<div
+																class="stars-rating d-flex align-items-center flex-wrap mb-10">
+																<span class="star-icon las la-star active"></span>
+																<span class="star-icon las la-star active"></span>
+																<span class="star-icon las la-star active"></span>
+																<span class="star-icon las la-star active"></span>
+																<span
+																	class="star-icon las la-star-half-alt active"></span>
+																<span class="stars-rating__point">4.9</span>
+																<span class="stars-rating__review">
+																	<span>778</span> Reviews
+																</span>
+															</div>
+														</div>
+														<div class="product-item__footer">
+
+															<div class="d-flex align-items-center flex-wrap">
+																<span class="product-desc-price">$200.00</span>
+																<span class="product-price">$100.00</span>
+																<span class="product-discount">50% Off</span>
+															</div>
+														</div>
+														<div class="product-item__button d-flex mt-20 flex-wrap">
+															<button
+																class="btn btn-default btn-squared color-light btn-outline-light px-20 ">
+																<img src="/img/svg/shopping-bag.svg" alt="shopping-bag"
+																	class="svg">
+																Thêm giỏ hàng
+															</button>
+															<button
+																class="btn btn-primary btn-default btn-squared border-0 px-25">
+																Xem chi tiết
+															</button>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-xl-4 col-lg-4 col-md-11 col-12 mb-30 px-10">
+										<div class="card product product--grid">
+											<div class="h-100">
+												<div class="product-item">
+													<div class="product-item__image">
+														<span class="like-icon">
+															<button type="button" class="content-center">
+																<i class="lar la-heart icon"></i>
+															</button>
+														</span>
+														<a href="#"><img class="card-img-top img-fluid"
+																src="/img/digital-chair.png" alt="digital-chair"></a>
+													</div>
+													<div class="card-body px-20 pb-25 pt-25">
+														<div class="product-item__body text-capitalize">
+															<a href="product-details.html">
+																<h6 class="card-title">Montes scelerisque</h6>
+															</a>
+															<div
+																class="stars-rating d-flex align-items-center flex-wrap mb-10">
+																<span class="star-icon las la-star active"></span>
+																<span class="star-icon las la-star active"></span>
+																<span class="star-icon las la-star active"></span>
+																<span class="star-icon las la-star active"></span>
+																<span
+																	class="star-icon las la-star-half-alt active"></span>
+																<span class="stars-rating__point">4.9</span>
+																<span class="stars-rating__review">
+																	<span>778</span> Reviews
+																</span>
+															</div>
+														</div>
+														<div class="product-item__footer">
+
+															<div class="d-flex align-items-center flex-wrap">
+																<span class="product-desc-price">$200.00</span>
+																<span class="product-price">$100.00</span>
+																<span class="product-discount">50% Off</span>
+															</div>
+														</div>
+														<div class="product-item__button d-flex mt-20 flex-wrap">
+															<button
+																class="btn btn-default btn-squared color-light btn-outline-light px-20 ">
+																<img src="/img/svg/shopping-bag.svg" alt="shopping-bag"
+																	class="svg">
+																Thêm giỏ hàng
+															</button>
+															<button
+																class="btn btn-primary btn-default btn-squared border-0 px-25">
+																Xem chi tiết
+															</button>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									@* <div class="col-xl-4 col-lg-4 col-md-11 col-12 mb-30 px-10">
+										<div class="card product product--grid">
+											<div class="h-100">
+												<div class="product-item">
+													<div class="product-item__image">
+														<span class="like-icon">
+															<button type="button" class="content-center">
+																<i class="lar la-heart icon"></i>
+															</button>
+														</span>
+														<a href="#"><img class="card-img-top img-fluid"
+																src="/img/digital-chair.png" alt="digital-chair"></a>
+													</div>
+													<div class="card-body px-20 pb-25 pt-25">
+														<div class="product-item__body text-capitalize">
+															<a href="product-details.html">
+																<h6 class="card-title">Montes scelerisque</h6>
+															</a>
+															<div
+																class="stars-rating d-flex align-items-center flex-wrap mb-10">
+																<span class="star-icon las la-star active"></span>
+																<span class="star-icon las la-star active"></span>
+																<span class="star-icon las la-star active"></span>
+																<span class="star-icon las la-star active"></span>
+																<span
+																	class="star-icon las la-star-half-alt active"></span>
+																<span class="stars-rating__point">4.9</span>
+																<span class="stars-rating__review">
+																	<span>778</span> Reviews
+																</span>
+															</div>
+														</div>
+														<div class="product-item__footer">
+
+															<div class="d-flex align-items-center flex-wrap">
+																<span class="product-desc-price">$200.00</span>
+																<span class="product-price">$100.00</span>
+																<span class="product-discount">50% Off</span>
+															</div>
+														</div>
+														<div class="product-item__button d-flex mt-20 flex-wrap">
+															<button
+																class="btn btn-default btn-squared color-light btn-outline-light px-20 ">
+																<img src="/img/svg/shopping-bag.svg" alt="shopping-bag"
+																	class="svg">
+																Thêm giỏ hàng
+															</button>
+															<button
+																class="btn btn-primary btn-default btn-squared border-0 px-25">
+																Xem chi tiết
+															</button>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-xl-4 col-lg-4 col-md-11 col-12 mb-30 px-10">
+										<div class="card product product--grid">
+											<div class="h-100">
+												<div class="product-item">
+													<div class="product-item__image">
+														<span class="like-icon">
+															<button type="button" class="content-center">
+																<i class="lar la-heart icon"></i>
+															</button>
+														</span>
+														<a href="#"><img class="card-img-top img-fluid"
+																src="/img/digital-chair.png" alt="digital-chair"></a>
+													</div>
+													<div class="card-body px-20 pb-25 pt-25">
+														<div class="product-item__body text-capitalize">
+															<a href="product-details.html">
+																<h6 class="card-title">Montes scelerisque</h6>
+															</a>
+															<div
+																class="stars-rating d-flex align-items-center flex-wrap mb-10">
+																<span class="star-icon las la-star active"></span>
+																<span class="star-icon las la-star active"></span>
+																<span class="star-icon las la-star active"></span>
+																<span class="star-icon las la-star active"></span>
+																<span
+																	class="star-icon las la-star-half-alt active"></span>
+																<span class="stars-rating__point">4.9</span>
+																<span class="stars-rating__review">
+																	<span>778</span> Reviews
+																</span>
+															</div>
+														</div>
+														<div class="product-item__footer">
+
+															<div class="d-flex align-items-center flex-wrap">
+																<span class="product-desc-price">$200.00</span>
+																<span class="product-price">$100.00</span>
+																<span class="product-discount">50% Off</span>
+															</div>
+														</div>
+														<div class="product-item__button d-flex mt-20 flex-wrap">
+															<button
+																class="btn btn-default btn-squared color-light btn-outline-light px-20 ">
+																<img src="/img/svg/shopping-bag.svg" alt="shopping-bag"
+																	class="svg">
+																Thêm giỏ hàng
+															</button>
+															<button
+																class="btn btn-primary btn-default btn-squared border-0 px-25">
+																Xem chi tiết
+															</button>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-xl-4 col-lg-4 col-md-11 col-12 mb-30 px-10">
+										<div class="card product product--grid">
+											<div class="h-100">
+												<div class="product-item">
+													<div class="product-item__image">
+														<span class="like-icon">
+															<button type="button" class="content-center">
+																<i class="lar la-heart icon"></i>
+															</button>
+														</span>
+														<a href="#"><img class="card-img-top img-fluid"
+																src="/img/digital-chair.png" alt="digital-chair"></a>
+													</div>
+													<div class="card-body px-20 pb-25 pt-25">
+														<div class="product-item__body text-capitalize">
+															<a href="product-details.html">
+																<h6 class="card-title">Montes scelerisque</h6>
+															</a>
+															<div
+																class="stars-rating d-flex align-items-center flex-wrap mb-10">
+																<span class="star-icon las la-star active"></span>
+																<span class="star-icon las la-star active"></span>
+																<span class="star-icon las la-star active"></span>
+																<span class="star-icon las la-star active"></span>
+																<span
+																	class="star-icon las la-star-half-alt active"></span>
+																<span class="stars-rating__point">4.9</span>
+																<span class="stars-rating__review">
+																	<span>778</span> Reviews
+																</span>
+															</div>
+														</div>
+														<div class="product-item__footer">
+
+															<div class="d-flex align-items-center flex-wrap">
+																<span class="product-desc-price">$200.00</span>
+																<span class="product-price">$100.00</span>
+																<span class="product-discount">50% Off</span>
+															</div>
+														</div>
+														<div class="product-item__button d-flex mt-20 flex-wrap">
+															<button
+																class="btn btn-default btn-squared color-light btn-outline-light px-20 ">
+																<img src="/img/svg/shopping-bag.svg" alt="shopping-bag"
+																	class="svg">
+																Thêm giỏ hàng
+															</button>
+															<button
+																class="btn btn-primary btn-default btn-squared border-0 px-25">
+																Xem chi tiết
+															</button>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-xl-4 col-lg-4 col-md-11 col-12 mb-30 px-10">
+										<div class="card product product--grid">
+											<div class="h-100">
+												<div class="product-item">
+													<div class="product-item__image">
+														<span class="like-icon">
+															<button type="button" class="content-center">
+																<i class="lar la-heart icon"></i>
+															</button>
+														</span>
+														<a href="#"><img class="card-img-top img-fluid"
+																src="/img/digital-chair.png" alt="digital-chair"></a>
+													</div>
+													<div class="card-body px-20 pb-25 pt-25">
+														<div class="product-item__body text-capitalize">
+															<a href="product-details.html">
+																<h6 class="card-title">Montes scelerisque</h6>
+															</a>
+															<div
+																class="stars-rating d-flex align-items-center flex-wrap mb-10">
+																<span class="star-icon las la-star active"></span>
+																<span class="star-icon las la-star active"></span>
+																<span class="star-icon las la-star active"></span>
+																<span class="star-icon las la-star active"></span>
+																<span
+																	class="star-icon las la-star-half-alt active"></span>
+																<span class="stars-rating__point">4.9</span>
+																<span class="stars-rating__review">
+																	<span>778</span> Reviews
+																</span>
+															</div>
+														</div>
+														<div class="product-item__footer">
+
+															<div class="d-flex align-items-center flex-wrap">
+																<span class="product-desc-price">$200.00</span>
+																<span class="product-price">$100.00</span>
+																<span class="product-discount">50% Off</span>
+															</div>
+														</div>
+														<div class="product-item__button d-flex mt-20 flex-wrap">
+															<button
+																class="btn btn-default btn-squared color-light btn-outline-light px-20 ">
+																<img src="/img/svg/shopping-bag.svg" alt="shopping-bag"
+																	class="svg">
+																Thêm giỏ hàng
+															</button>
+															<button
+																class="btn btn-primary btn-default btn-squared border-0 px-25">
+																Xem chi tiết
+															</button>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-xl-4 col-lg-4 col-md-11 col-12 mb-30 px-10">
+										<div class="card product product--grid">
+											<div class="h-100">
+												<div class="product-item">
+													<div class="product-item__image">
+														<span class="like-icon">
+															<button type="button" class="content-center">
+																<i class="lar la-heart icon"></i>
+															</button>
+														</span>
+														<a href="#"><img class="card-img-top img-fluid"
+																src="/img/digital-chair.png" alt="digital-chair"></a>
+													</div>
+													<div class="card-body px-20 pb-25 pt-25">
+														<div class="product-item__body text-capitalize">
+															<a href="product-details.html">
+																<h6 class="card-title">Montes scelerisque</h6>
+															</a>
+															<div
+																class="stars-rating d-flex align-items-center flex-wrap mb-10">
+																<span class="star-icon las la-star active"></span>
+																<span class="star-icon las la-star active"></span>
+																<span class="star-icon las la-star active"></span>
+																<span class="star-icon las la-star active"></span>
+																<span
+																	class="star-icon las la-star-half-alt active"></span>
+																<span class="stars-rating__point">4.9</span>
+																<span class="stars-rating__review">
+																	<span>778</span> Reviews
+																</span>
+															</div>
+														</div>
+														<div class="product-item__footer">
+
+															<div class="d-flex align-items-center flex-wrap">
+																<span class="product-desc-price">$200.00</span>
+																<span class="product-price">$100.00</span>
+																<span class="product-discount">50% Off</span>
+															</div>
+														</div>
+														<div class="product-item__button d-flex mt-20 flex-wrap">
+															<button
+																class="btn btn-default btn-squared color-light btn-outline-light px-20 ">
+																<img src="/img/svg/shopping-bag.svg" alt="shopping-bag"
+																	class="svg">
+																Thêm giỏ hàng
+															</button>
+															<button
+																class="btn btn-primary btn-default btn-squared border-0 px-25">
+																Xem chi tiết
+															</button>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-xl-4 col-lg-4 col-md-11 col-12 mb-30 px-10">
+										<div class="card product product--grid">
+											<div class="h-100">
+												<div class="product-item">
+													<div class="product-item__image">
+														<span class="like-icon">
+															<button type="button" class="content-center">
+																<i class="lar la-heart icon"></i>
+															</button>
+														</span>
+														<a href="#"><img class="card-img-top img-fluid"
+																src="/img/digital-chair.png" alt="digital-chair"></a>
+													</div>
+													<div class="card-body px-20 pb-25 pt-25">
+														<div class="product-item__body text-capitalize">
+															<a href="product-details.html">
+																<h6 class="card-title">Montes scelerisque</h6>
+															</a>
+															<div
+																class="stars-rating d-flex align-items-center flex-wrap mb-10">
+																<span class="star-icon las la-star active"></span>
+																<span class="star-icon las la-star active"></span>
+																<span class="star-icon las la-star active"></span>
+																<span class="star-icon las la-star active"></span>
+																<span
+																	class="star-icon las la-star-half-alt active"></span>
+																<span class="stars-rating__point">4.9</span>
+																<span class="stars-rating__review">
+																	<span>778</span> Reviews
+																</span>
+															</div>
+														</div>
+														<div class="product-item__footer">
+
+															<div class="d-flex align-items-center flex-wrap">
+																<span class="product-desc-price">$200.00</span>
+																<span class="product-price">$100.00</span>
+																<span class="product-discount">50% Off</span>
+															</div>
+														</div>
+														<div class="product-item__button d-flex mt-20 flex-wrap">
+															<button
+																class="btn btn-default btn-squared color-light btn-outline-light px-20 ">
+																<img src="/img/svg/shopping-bag.svg" alt="shopping-bag"
+																	class="svg">
+																Thêm giỏ hàng
+															</button>
+															<button
+																class="btn btn-primary btn-default btn-squared border-0 px-25">
+																Xem chi tiết
+															</button>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div> *@
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+@section Scripts {
+	<script>
+		$(document).ready(function () {
+			$("#hot-product-carousel").owlCarousel({
+				items: 5, // Number of cards shown in each slide
+				loop: true, // Continuously loop the carousel
+				margin: 20, // Space between cards
+				nav: true, // Show navigation buttons
+				autoPlay: true,
+				pagination: true,
+				paginationSpeed: 3000,
+				navText: ["<i class='fas fa-chevron-left'></i>", "<i class='fas fa-chevron-right'></i>"], // Custom navigation icons
+				responsive: {
+					0: {
+						items: 1 // Number of cards shown in the carousel for smaller screens
+					},
+					768: {
+						items: 2 // Number of cards shown in the carousel for medium screens
+					},
+					992: {
+						items: 3 // Number of cards shown in the carousel for large screens
+					}
+				}
+			});
+		});
+	</script>
+}

@@ -1,0 +1,536 @@
+﻿@{
+	ViewData["Title"] = "Home Page";
+}
+<section class="about-container white-bg container-section">
+	<div class="container">
+		<div class="about-box">
+			<div class="row align-center">
+				<div class="col-6">
+					<div class="content-left content-box">
+						<h4 class="header-box-content">Giới thiệu về chúng tôi</h4>
+						<p class="content-text">Kayoko Việt Nam – Để có được vóc dáng đẹp, một thân hình lý tưởng thì
+							nhiều bạn trẻ đã tìm cho mình những biện pháp Giảm cân/Tăng cân khác nhau, như dùng thuốc,
+							tập gym, hay ăn kiêng,.. nhưng hiệu quả vẫn không được như ý. Thậm chí, nếu lạm dụng các
+							hình thức này còn có nguy cơ ảnh hưởng lớn đến sức khỏe.</p>
+						<p class="content-text">Hiểu được vấn đề này, Công Ty TNHH SX TM & DV Kayoko Việt Nam đã cho ra
+							đời 2 dòng sản phẩm trà tăng cân cường anh và trà giảm cân cường anh giúp giải quyết vấn đề
+							cân nặng một cách triệt để, nhanh chóng và không gây tác dụng phụ. Sản phẩm được nhiều người
+							tin dùng với nguyên liệu 100% tự nhiên, an toàn cho sức khỏe….</p>
+					</div>
+				</div>
+				<div class="col-6">
+					<div class="content-right content-box">
+						<img class="content-box-image"
+							src="https://studiochupanhdep.com/Upload/Images/chup-anh-van-phong-doanh-nghiep-02.webp" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="product-container container-section">
+	<div class="container">
+		<div class="sale-product-box">
+			<h4 class="header-box-content"> Sản phẩm giảm giá </h4>
+			<div class="sale-product-list">
+				<div class="row">
+					@await Component.InvokeAsync("DiscountProducts", 10)
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="infomation-container white-bg container-section">
+	<div class="container">
+		<div class="sale-product-box">
+			<div class="row">
+				<div class="col medium-6 col-3 small-12 large-3">
+					<div class="col-inner">
+						<div class="box has-hover has-hover box-text-bottom text-center">
+							<div class="box-image">
+								<img src="https://mauweb.monamedia.net/fpt-hanoi/wp-content/uploads/2019/03/unnamed.png"
+									class="attachment-original size-original" alt="">
+							</div>
+
+							<div class="box-text text-center">
+								<div class="box-text-inner">
+									<h3 class="box-text-header">Cam kết chất lượng</h3>
+									<p class="box-text-content">Few would argue that, despite the advancements of
+										feminism over the past.</p>
+								</div>
+							</div>
+						</div><!-- .box  -->
+
+					</div>
+				</div>
+				<div class="col medium-6 col-3 small-12 large-3">
+					<div class="col-inner">
+						<div class="box has-hover has-hover box-text-bottom text-center">
+							<div class="box-image">
+								<img src="https://mauweb.monamedia.net/fpt-hanoi/wp-content/uploads/2019/03/download.jpeg"
+									class="attachment-original size-original" alt="">
+							</div>
+
+							<div class="box-text text-center">
+								<div class="box-text-inner">
+									<h3 class="box-text-header">Cam kết chất lượng</h3>
+									<p class="box-text-content">Few would argue that, despite the advancements of
+										feminism over the past.</p>
+								</div>
+							</div>
+						</div><!-- .box  -->
+
+					</div>
+				</div>
+				<div class="col medium-6 col-3 small-12 large-3">
+					<div class="col-inner">
+						<div class="box has-hover has-hover box-text-bottom text-center">
+							<div class="box-image">
+								<img src="https://mauweb.monamedia.net/fpt-hanoi/wp-content/uploads/2019/03/handshake_icon-11.png"
+									class="attachment-original size-original" alt="">
+							</div>
+
+							<div class="box-text text-center">
+								<div class="box-text-inner">
+									<h3 class="box-text-header">Cam kết chất lượng</h3>
+									<p class="box-text-content">Few would argue that, despite the advancements of
+										feminism over the past.</p>
+								</div>
+							</div>
+						</div><!-- .box  -->
+
+					</div>
+				</div>
+				<div class="col medium-6 col-3 small-12 large-3">
+					<div class="col-inner">
+						<div class="box has-hover has-hover box-text-bottom text-center">
+							<div class="box-image">
+								<img src="https://mauweb.monamedia.net/fpt-hanoi/wp-content/uploads/2019/03/law-icon-1.jpg"
+									class="attachment-original size-original" alt="">
+							</div>
+
+							<div class="box-text text-center">
+								<div class="box-text-inner">
+									<h3 class="box-text-header">Cam kết chất lượng</h3>
+									<p class="box-text-content">Few would argue that, despite the advancements of
+										feminism over the past.</p>
+								</div>
+							</div>
+						</div><!-- .box  -->
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="product-container container-section">
+	<div class="container">
+		<div class="sale-product-box">
+			<h4 class="header-box-content"> Sản phẩm nổi bật </h4>
+			<div class="sale-product-list">
+				<div class="row">
+					@await Component.InvokeAsync("HotProducts", 10)
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="feedback-container white-bg container-section" style="background-image: url('/img/bg_4.jpg');">
+	<div class="overlay"></div>
+	<div class="container">
+		<div class="feedback-box">
+			<h4 class="header-box-content feedback-header">Phản hồi từ khách hàng</h4>
+
+			<div id="myCarousel" class="row owl-carousel owl-theme my-3 feedback-list">
+				<div class="feedback-item">
+					<div class="icon d-flex align-items-center justify-content-center"><span
+							class="fa fa-quote-left"></span></div>
+					<div class="feedback-content">
+						<p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and
+							Consonantia, there live the blind texts.</p>
+					</div>
+					<div class="feedback-user">
+						<img class="feedback-user-img" src="~/img/default-user.webp" />
+						<div class="feedback-user-info">
+							<h4 class="feedback-user-name">Nguyen van a</h4>
+							<span class="feedback-user-title">nhan vien marketing</span>
+						</div>
+					</div>
+				</div>
+				<div class="feedback-item">
+					<div class="icon d-flex align-items-center justify-content-center"><span
+							class="fa fa-quote-left"></span></div>
+					<div class="feedback-content">
+						<p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and
+							Consonantia, there live the blind texts.</p>
+					</div>
+					<div class="feedback-user">
+						<img class="feedback-user-img" src="~/img/default-user.webp" />
+						<div class="feedback-user-info">
+							<h4 class="feedback-user-name">Nguyen van a</h4>
+							<span class="feedback-user-title">nhan vien marketing</span>
+						</div>
+					</div>
+				</div>
+				<div class="feedback-item">
+					<div class="icon d-flex align-items-center justify-content-center"><span
+							class="fa fa-quote-left"></span></div>
+					<div class="feedback-content">
+						<p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and
+							Consonantia, there live the blind texts.</p>
+					</div>
+					<div class="feedback-user">
+						<img class="feedback-user-img" src="~/img/default-user.webp" />
+						<div class="feedback-user-info">
+							<h4 class="feedback-user-name">Nguyen van a</h4>
+							<span class="feedback-user-title">nhan vien marketing</span>
+						</div>
+					</div>
+				</div>
+				<div class="feedback-item">
+					<div class="icon d-flex align-items-center justify-content-center"><span
+							class="fa fa-quote-left"></span></div>
+					<div class="feedback-content">
+						<p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and
+							Consonantia, there live the blind texts.</p>
+					</div>
+					<div class="feedback-user">
+						<img class="feedback-user-img" src="~/img/default-user.webp" />
+						<div class="feedback-user-info">
+							<h4 class="feedback-user-name">Nguyen van a</h4>
+							<span class="feedback-user-title">nhan vien marketing</span>
+						</div>
+					</div>
+				</div>
+				<div class="feedback-item">
+					<div class="icon d-flex align-items-center justify-content-center"><span
+							class="fa fa-quote-left"></span></div>
+					<div class="feedback-content">
+						<p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and
+							Consonantia, there live the blind texts.</p>
+					</div>
+					<div class="feedback-user">
+						<img class="feedback-user-img" src="~/img/default-user.webp" />
+						<div class="feedback-user-info">
+							<h4 class="feedback-user-name">Nguyen van a</h4>
+							<span class="feedback-user-title">nhan vien marketing</span>
+						</div>
+					</div>
+				</div>
+				<div class="feedback-item">
+					<div class="icon d-flex align-items-center justify-content-center"><span
+							class="fa fa-quote-left"></span></div>
+					<div class="feedback-content">
+						<p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and
+							Consonantia, there live the blind texts.</p>
+					</div>
+					<div class="feedback-user">
+						<img class="feedback-user-img" src="~/img/default-user.webp" />
+						<div class="feedback-user-info">
+							<h4 class="feedback-user-name">Nguyen van a</h4>
+							<span class="feedback-user-title">nhan vien marketing</span>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="blog-container  container-section">
+	<div class="container">
+		<div class="blog-box">
+			<h4 class="header-box-content">Bài viết</h4>
+			<div class="blog-list">
+				<div class="row">
+					<div class="col-xl-4 col-md-6 mb-25">
+						<div class="blog-card">
+							<div class="blog-card__thumbnail">
+								<a href="#">
+									<img src="/img/bg2.png" alt="">
+								</a>
+							</div>
+							<div class="blog-card__details">
+								<div class="blog-card__content">
+									<div class="blog-card__title--top">15 March 2021</div>
+									<h4 class="blog-card__title">
+										<a href="#" class="entry-title" rel="bookmark">The Ultimate Glossary of Terms
+											About</a>
+									</h4>
+									<p>There are many variations of passages of majority have suffered alteration in
+										some form</p>
+								</div>
+								<div class="blog-card__meta">
+									<div class="blog-card__meta-profile">
+										<img src="/img/alex-suprun.png" alt="">
+										<span>Machel Bold</span>
+									</div>
+									<div class="blog-card__meta-count">
+										<ul>
+											<li>
+												<div class="blog-card__meta-reaction">
+													<img src="/img/svg/heart.svg" alt="heart" class="svg">
+													<span class="blog-card__meta-reaction-like">15 K</span>
+												</div>
+											</li>
+											<li>
+												<div class="blog-card__meta-doc-wrapper">
+													<img src="/img/svg/file-text.svg" alt="file-text" class="svg">
+													<span class="blog-card__meta-doc">75</span>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-4 col-md-6 mb-25">
+						<div class="blog-card">
+							<div class="blog-card__thumbnail">
+								<a href="#">
+									<img src="/img/bg2.png" alt="">
+								</a>
+							</div>
+							<div class="blog-card__details">
+								<div class="blog-card__content">
+									<div class="blog-card__title--top">15 March 2021</div>
+									<h4 class="blog-card__title">
+										<a href="#" class="entry-title" rel="bookmark">The Ultimate Glossary of Terms
+											About</a>
+									</h4>
+									<p>There are many variations of passages of majority have suffered alteration in
+										some form</p>
+								</div>
+								<div class="blog-card__meta">
+									<div class="blog-card__meta-profile">
+										<img src="/img/alex-suprun.png" alt="">
+										<span>Machel Bold</span>
+									</div>
+									<div class="blog-card__meta-count">
+										<ul>
+											<li>
+												<div class="blog-card__meta-reaction">
+													<img src="/img/svg/heart.svg" alt="heart" class="svg">
+													<span class="blog-card__meta-reaction-like">15 K</span>
+												</div>
+											</li>
+											<li>
+												<div class="blog-card__meta-doc-wrapper">
+													<img src="/img/svg/file-text.svg" alt="file-text" class="svg">
+													<span class="blog-card__meta-doc">75</span>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-4 col-md-6 mb-25">
+						<div class="blog-card">
+							<div class="blog-card__thumbnail">
+								<a href="#">
+									<img src="/img/bg2.png" alt="">
+								</a>
+							</div>
+							<div class="blog-card__details">
+								<div class="blog-card__content">
+									<div class="blog-card__title--top">15 March 2021</div>
+									<h4 class="blog-card__title">
+										<a href="#" class="entry-title" rel="bookmark">The Ultimate Glossary of Terms
+											About</a>
+									</h4>
+									<p>There are many variations of passages of majority have suffered alteration in
+										some form</p>
+								</div>
+								<div class="blog-card__meta">
+									<div class="blog-card__meta-profile">
+										<img src="/img/alex-suprun.png" alt="">
+										<span>Machel Bold</span>
+									</div>
+									<div class="blog-card__meta-count">
+										<ul>
+											<li>
+												<div class="blog-card__meta-reaction">
+													<img src="/img/svg/heart.svg" alt="heart" class="svg">
+													<span class="blog-card__meta-reaction-like">15 K</span>
+												</div>
+											</li>
+											<li>
+												<div class="blog-card__meta-doc-wrapper">
+													<img src="/img/svg/file-text.svg" alt="file-text" class="svg">
+													<span class="blog-card__meta-doc">75</span>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-4 col-md-6 mb-25">
+						<div class="blog-card">
+							<div class="blog-card__thumbnail">
+								<a href="#">
+									<img src="/img/bg2.png" alt="">
+								</a>
+							</div>
+							<div class="blog-card__details">
+								<div class="blog-card__content">
+									<div class="blog-card__title--top">15 March 2021</div>
+									<h4 class="blog-card__title">
+										<a href="#" class="entry-title" rel="bookmark">The Ultimate Glossary of Terms
+											About</a>
+									</h4>
+									<p>There are many variations of passages of majority have suffered alteration in
+										some form</p>
+								</div>
+								<div class="blog-card__meta">
+									<div class="blog-card__meta-profile">
+										<img src="/img/alex-suprun.png" alt="">
+										<span>Machel Bold</span>
+									</div>
+									<div class="blog-card__meta-count">
+										<ul>
+											<li>
+												<div class="blog-card__meta-reaction">
+													<img src="/img/svg/heart.svg" alt="heart" class="svg">
+													<span class="blog-card__meta-reaction-like">15 K</span>
+												</div>
+											</li>
+											<li>
+												<div class="blog-card__meta-doc-wrapper">
+													<img src="/img/svg/file-text.svg" alt="file-text" class="svg">
+													<span class="blog-card__meta-doc">75</span>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-4 col-md-6 mb-25">
+						<div class="blog-card">
+							<div class="blog-card__thumbnail">
+								<a href="#">
+									<img src="/img/bg2.png" alt="">
+								</a>
+							</div>
+							<div class="blog-card__details">
+								<div class="blog-card__content">
+									<div class="blog-card__title--top">15 March 2021</div>
+									<h4 class="blog-card__title">
+										<a href="#" class="entry-title" rel="bookmark">The Ultimate Glossary of Terms
+											About</a>
+									</h4>
+									<p>There are many variations of passages of majority have suffered alteration in
+										some form</p>
+								</div>
+								<div class="blog-card__meta">
+									<div class="blog-card__meta-profile">
+										<img src="/img/alex-suprun.png" alt="">
+										<span>Machel Bold</span>
+									</div>
+									<div class="blog-card__meta-count">
+										<ul>
+											<li>
+												<div class="blog-card__meta-reaction">
+													<img src="/img/svg/heart.svg" alt="heart" class="svg">
+													<span class="blog-card__meta-reaction-like">15 K</span>
+												</div>
+											</li>
+											<li>
+												<div class="blog-card__meta-doc-wrapper">
+													<img src="/img/svg/file-text.svg" alt="file-text" class="svg">
+													<span class="blog-card__meta-doc">75</span>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-xl-4 col-md-6 mb-25">
+						<div class="blog-card">
+							<div class="blog-card__thumbnail">
+								<a href="#">
+									<img src="/img/bg2.png" alt="">
+								</a>
+							</div>
+							<div class="blog-card__details">
+								<div class="blog-card__content">
+									<div class="blog-card__title--top">15 March 2021</div>
+									<h4 class="blog-card__title">
+										<a href="#" class="entry-title" rel="bookmark">The Ultimate Glossary of Terms
+											About</a>
+									</h4>
+									<p>There are many variations of passages of majority have suffered alteration in
+										some form</p>
+								</div>
+								<div class="blog-card__meta">
+									<div class="blog-card__meta-profile">
+										<img src="/img/alex-suprun.png" alt="">
+										<span>Machel Bold</span>
+									</div>
+									<div class="blog-card__meta-count">
+										<ul>
+											<li>
+												<div class="blog-card__meta-reaction">
+													<img src="/img/svg/heart.svg" alt="heart" class="svg">
+													<span class="blog-card__meta-reaction-like">15 K</span>
+												</div>
+											</li>
+											<li>
+												<div class="blog-card__meta-doc-wrapper">
+													<img src="/img/svg/file-text.svg" alt="file-text" class="svg">
+													<span class="blog-card__meta-doc">75</span>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+@section Scripts {
+		<script>
+			$(document).ready(function () {
+				$("#myCarousel").owlCarousel({
+					items: 3, // Number of cards shown in each slide
+					loop: true, // Continuously loop the carousel
+					margin: 20, // Space between cards
+					nav: false, // Show navigation buttons
+					autoPlay: true,
+					pagination: true,
+					paginationSpeed: 3000,
+					navText: ["<i class='fas fa-chevron-left'></i>", "<i class='fas fa-chevron-right'></i>"], // Custom navigation icons
+					responsive: {
+						0: {
+							items: 1 // Number of cards shown in the carousel for smaller screens
+						},
+						768: {
+							items: 2 // Number of cards shown in the carousel for medium screens
+						},
+						992: {
+							items: 3 // Number of cards shown in the carousel for large screens
+						}
+					}
+				});
+			});
+		</script>
+}

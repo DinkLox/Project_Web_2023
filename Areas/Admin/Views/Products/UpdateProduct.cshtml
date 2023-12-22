@@ -1,0 +1,121 @@
+﻿@using WEB_2023.Areas.Admin.Models
+@model (ProductViewModel CurrentProduct, UpdateProductModel UpdateProduct)
+@{
+    ViewData["Title"] = "Cập nhật - " + Model.CurrentProduct.Name;
+    Model.UpdateProduct.Detail = Model.CurrentProduct.Detail;
+    Model.UpdateProduct.Description = Model.CurrentProduct.Description;
+}
+
+<div class="CreateProduct">
+    <div class="breadcrumb-main">
+        <h4 class="breadcrumb-title">Cập nhật sản phẩm</h4>
+    </div>
+    <div class="row">
+        <form enctype="multipart/form-data" asp-action="UpdateProduct" asp-controller="Products"
+            asp-route-id="@Model.CurrentProduct.Id" asp-area="Admin" method="POST"
+            class="row upload-product justify-content-center" id="">
+            @Html.AntiForgeryToken()
+            <input id="file-upload" accept="image/png, image/jpeg, image/jpg, image/webp, image/heic" type="file"
+                asp-for="@Model.UpdateProduct.ProductImage" class="d-none upload-avatar-input">
+            <div class="col-sm-12 col-lg-4 col-xl-4">
+                <div class="card">
+                    <div class="card-body account-profile edit-profile__body ">
+                        <div class="product-image-upload-box">
+                            <div class="product-image-upload"
+                                style="background-image: url('@Model.CurrentProduct.ImageURL')">
+                            </div>
+                            <label for="file-upload" class="cross" id="remove_pro_pic">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="svg replaced-svg">
+                                    <path
+                                        d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z">
+                                    </path>
+                                    <circle cx="12" cy="13" r="4"></circle>
+                                </svg>
+                            </label>
+                        </div>
+                        <div class="col-12 mt-3">
+                            <div class="form-group mb-20">
+                                <label asp-for="@Model.UpdateProduct.Name">Tên sản phẩm</label>
+                                <input type="text" id="full-name" class="form-control"
+                                    asp-for="@Model.UpdateProduct.Name" value="@Model.CurrentProduct.Name"
+                                    placeholder="Nhập tên sản phẩm">
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group mb-20">
+                                <label asp-for="@Model.UpdateProduct.CategoryId">Danh mục sản phẩm</label>
+                                <select asp-for="@Model.UpdateProduct.CategoryId" asp-items="@ViewBag.Categories"
+                                    class="form-control">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group mb-20">
+                                <label asp-for="@Model.UpdateProduct.Price">Giá bán</label>
+                                <input type="text" id="address" class="form-control"
+                                    asp-for="@Model.UpdateProduct.Price"
+                                    value="@(Model.CurrentProduct.Price.ToString("#0"))" placeholder="Nhập giá bán">
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group mb-20">
+                                <label asp-for="@Model.UpdateProduct.Discount">Giá sau khi giảm</label>
+                                <input type="text" id="address" class="form-control"
+                                    asp-for="@Model.UpdateProduct.Discount"
+                                    value="@(Model.CurrentProduct.DiscountPrice?.ToString("#0"))"
+                                    placeholder="Nhập giá sau khi giảm">
+                            </div>
+                        </div>
+                        <div class="button-group d-flex justify-content-end flex-wrap pt-30 mb-15">
+                            <button type="submit" class="btn btn-primary btn-default rounded-pill me-15 submit-btn">
+                                Cật nhật sản phấm
+                            </button>
+                            <a asp-action="Index" asp-controller="Users" asp-area="Admin"
+                                class="btn btn-light btn-default rounded-pill">
+                                Huỷ bỏ
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-lg-8 col-xl-8">
+                <div class="card">
+                    <div class="card-body edit-profile__body">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group mb-20">
+                                    <label asp-for="@Model.UpdateProduct.Description">Mô tả sản phẩm</label>
+                                    <textarea class="product-text-desc" style="width: 100%; display: block;"
+                                        asp-for="@Model.UpdateProduct.Description">
+                                    </textarea>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group mb-20">
+                                    <label asp-for="@Model.UpdateProduct.Detail">Chi tiết sản phẩm</label>
+                                    <textarea id="editor" asp-for="@Model.UpdateProduct.Detail">
+                                    </textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        const uploadAvatarInput = $('.upload-avatar-input')
+        uploadAvatarInput.on('change', function () {
+            const file = this.files[0]
+            if (file) {
+                const url = URL.createObjectURL(file)
+                $('.product-image-upload').css('background-image', `url('${url}')`)
+            }
+        })
+    </script>
+}
